@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Off-Campus Access</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+        body {
+            background-image: linear-gradient(to right, black, transparent), url('unitenback.jpg'); 
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center center;
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            position: relative; 
+        }
+
+        .container {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            height: 100vh;
+            padding-left: 50px;
+            padding-right: 50px;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .login-box-wrapper {
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 400px;
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .login-box {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .login-box img {
+            width: 80%;
+            margin-bottom: 20px;
+        }
+
+        .radio-buttons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .radio-buttons label {
+            margin: 0 10px;
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+        }
+
+        .radio-buttons input[type="radio"] {
+            margin-right: 6px;
+        }
+
+        .login-box form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .login-box input[type="text"],
+        .login-box input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .login-box input[type="submit"] {
+            background-color: #c21c21;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        .login-box input[type="submit"].staff {
+            background-color: #c21c21;
+        }
+
+        .login-box input[type="submit"].student {
+            background-color: #c21c21;
+        }
+
+        .login-box input[type="submit"]:hover {
+            background-color: #970606;
+        }
+
+        .contact-info {
+            color: #888;
+            font-size: 14px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .contact-info a {
+            color: #c21c21;
+            text-decoration: none;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            padding: 10px 0;
+            color: white;
+            font-size: 12px;
+        }
+
+        .info-box {
+            position: absolute;
+            top: 20px; 
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 36px;
+            font-weight: bold;
+            line-height: 1.5;
+            text-align: center;
+            font-family: 'Open Sans', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .info-box p {
+            margin: 0;
+            font-size: 36px; 
+        }
+
+        .small-text {
+            font-size: 12px;
+            color: #888;
+        }
+
+        .social-icons {
+            position: absolute;
+            top: 10px;
+            left: 0; 
+            display: flex;
+            gap: 10px;
+            transition: transform 0.5s ease;
+            transform: translateX(-100%);
+            z-index: 1000;
+        }
+
+        .social-icon-wrapper {
+            position: relative;
+            width: 60px;
+            height: 60px;
+        }
+
+        .social-icons .cloud {
+            background: #fff;
+            border-radius: 50%;
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-icons img {
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            transition: filter 0.3s ease;
+        }
+
+        .social-icons a[href*="tiktok"] img:hover {
+            filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
+        }
+
+        .social-icons a[href*="instagram"] img:hover {
+            filter: invert(41%) sepia(67%) saturate(1452%) hue-rotate(311deg) brightness(94%) contrast(104%);
+        }
+
+        .social-icons a[href*="youtube"] img:hover {
+            filter: invert(24%) sepia(100%) saturate(7486%) hue-rotate(0deg) brightness(101%) contrast(109%);
+        }
+
+        .social-icons a[href*="facebook"] img:hover {
+            filter: invert(35%) sepia(100%) saturate(743%) hue-rotate(182deg) brightness(96%) contrast(106%);
+        }
+
+        .uniten-logo {
+            position: absolute;
+            top: 1px;
+            right: 30px;
+        }
+
+        .uniten-logo img {
+            width: 200px;
+            height: auto;
+            display: block;
+        }
+
+        .toggle-button {
+            position: absolute;
+            top: 25px;
+            left: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1001; 
+            transition: background-color 0.3s ease, left 0.5s ease;
+        }
+
+        .toggle-button.left {
+            left: 270px;
+        }
+
+        .toggle-button:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+    </style>
+</head>
+<body>
+    
+    <button class="toggle-button" onclick="toggleSocialIcons()">></button>
+
+    <div class="social-icons">
+        <div class="social-icon-wrapper">
+            <div class="cloud"></div>
+            <a href="https://www.tiktok.com/@unitenirc" target="_blank">
+                <img src="logo-tiktok.svg" alt="TikTok">
+            </a>
+        </div>
+        <div class="social-icon-wrapper">
+            <div class="cloud"></div>
+            <a href="https://www.instagram.com/unitenirc/" target="_blank">
+                <img src="logo-instagram.svg" alt="Instagram">
+            </a>
+        </div>
+        <div class="social-icon-wrapper">
+            <div class="cloud"></div>
+            <a href="https://www.youtube.com/@IRC-ICS" target="_blank">
+                <img src="logo-youtube.svg" alt="YouTube">
+            </a>
+        </div>
+        <div class="social-icon-wrapper">
+            <div class="cloud"></div>
+            <a href="https://www.facebook.com/UNITENIRC/" target="_blank">
+                <img src="logo-facebook.svg" alt="Facebook">
+            </a>
+        </div>
+    </div>
+
+    <div class="uniten-logo">
+        <img src="Universiti_Tenaga_Nasional_Logo (1).png" alt="Universiti Tenaga Nasional">
+    </div>
+
+    <div class="container">
+        <div class="login-box-wrapper">
+            <div class="login-box">
+                <img src="irc.png" alt="IRC Logo"> 
+                <div class="radio-buttons">
+                    <label>
+                        <input type="radio" name="role" id="staff" value="staff" checked> Staff
+                    </label>
+                    <label>
+                        <input type="radio" name="role" id="student" value="student"> Student
+                    </label>
+                </div>
+                <form id="login-form">
+                    <input type="text" id="id-field" name="id" placeholder="Staff ID (eg, siti)">
+                    <input type="password" name="pass" placeholder="Password">
+                    <input type="submit" id="login-button" value="Log in">
+                </form>
+                <div class="contact-info">
+                    Please contact <br><a href="https://lib.uniten.edu.my/ulib/index.php/directory1">Information & Customer Service Unit</a></br> for assistance.
+                </div><br>
+                <div class="small-text">&copy;2024 Universiti Tenaga Nasional</div>
+            </div>
+        </div>
+        <div class="info-box">
+            <p><em>UNITEN IRC</em></p>
+            <p><em>ONLINE RESOURCES</em></p>
+        </div>
+    </div>
+    <div class="footer">
+        Universiti Tenaga Nasional Library<br>
+        UNITEN Putrajaya Campus: Jalan IKRAM-UNITEN, 43000 Kajang, Selangor. Tel: 603-8921 2020, Fax: 603-8926 1772.<br>
+        UNITEN Sultan Haji Ahmad Shah Campus: 26700 Bandar Muadzam Shah, Pahang. Tel: 609-455 2020, Fax: 609-455 2000.<br>
+    </div>
+    <script>
+        function toggleSocialIcons() {
+            const icons = document.querySelector('.social-icons');
+            const button = document.querySelector('.toggle-button');
+            const isVisible = icons.style.transform === 'translateX(0%)';
+            icons.style.transform = isVisible ? 'translateX(-100%)' : 'translateX(0%)';
+            button.classList.toggle('left', !isVisible);
+            button.textContent = isVisible ? '>' : '<';
+        }
+    </script>
+</body>
+</html>
