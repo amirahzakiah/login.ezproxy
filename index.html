@@ -314,7 +314,6 @@
             <p><em>ONLINE RESOURCES</em></p>
         </div>
     </div>
-
     <div class="footer">
         Universiti Tenaga Nasional Library<br>
         UNITEN Putrajaya Campus: Jalan IKRAM-UNITEN, 43000 Kajang, Selangor. Tel: 603-8921 2020, Fax: 603-8926 1772.<br>
@@ -326,9 +325,10 @@
             const button = document.querySelector('.toggle-button');
             const isVisible = icons.style.transform === 'translateX(0%)';
             icons.style.transform = isVisible ? 'translateX(-100%)' : 'translateX(0%)';
-            button.classList.toggle('right', !isVisible);
+            button.classList.toggle('left', !isVisible);
             button.textContent = isVisible ? '>' : '<';
         }
     </script>
 </body>
 </html>
+
