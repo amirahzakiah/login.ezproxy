@@ -309,11 +309,11 @@
             
             function updateForm() {
                 if (staffRadio.checked) {
-                    idField.placeholder = 'Staff ID (eg, siti)';
+                    idField.placeholder = 'Staff ID (eg: siti)';
                     submitButton.classList.remove('student');
                     submitButton.classList.add('staff');
                 } else if (studentRadio.checked) {
-                    idField.placeholder = 'Student ID (eg, IS23667)';
+                    idField.placeholder = 'Student ID (eg: IS23667)';
                     submitButton.classList.remove('staff');
                     submitButton.classList.add('student');
                 }
