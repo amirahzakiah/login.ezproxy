@@ -6,6 +6,7 @@
     <title>Off-Campus Access</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+       
 
         body {
             background-image: linear-gradient(to right, black, transparent), url('unitenback.jpg'); 
@@ -161,32 +162,20 @@
         }
 
         .social-icons {
-            position: absolute;
-            top: 10px;
-            left: 0; 
+            position: fixed; 
+            bottom: 10px; 
+            right: 10px; 
             display: flex;
-            gap: 10px;
+            gap: 5px;
             transition: transform 0.5s ease;
-            transform: translateX(-100%);
+            transform: translateX(0); 
             z-index: 1000;
         }
 
         .social-icon-wrapper {
             position: relative;
-            width: 60px;
-            height: 60px;
-        }
-
-        .social-icons .cloud {
-            background: #fff;
-            border-radius: 50%;
-            position: absolute;
-            width: 60px;
-            height: 60px;
-            top: 0;
-            left: 0;
-            z-index: -1;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 40px;
+            height: 40px;
         }
 
         .social-icons img {
@@ -200,8 +189,9 @@
             transition: filter 0.3s ease;
         }
 
+
         .social-icons a[href*="tiktok"] img:hover {
-            filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
+            filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
         }
 
         .social-icons a[href*="instagram"] img:hover {
@@ -228,33 +218,9 @@
             display: block;
         }
 
-        .toggle-button {
-            position: absolute;
-            top: 25px;
-            left: 10px;
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 10px;
-            cursor: pointer;
-            z-index: 1001; 
-            transition: background-color 0.3s ease, left 0.5s ease;
-        }
-
-        .toggle-button.left {
-            left: 270px;
-        }
-
-        .toggle-button:hover {
-            background-color: rgba(0, 0, 0, 0.7);
-        }
     </style>
 </head>
 <body>
-    
-    <button class="toggle-button" onclick="toggleSocialIcons()">></button>
-
     <div class="social-icons">
         <div class="social-icon-wrapper">
             <div class="cloud"></div>
@@ -304,8 +270,11 @@
                     <input type="submit" id="login-button" value="Log in">
                 </form>
                 <div class="contact-info">
-                    Please contact <br><a href="https://lib.uniten.edu.my/ulib/index.php/directory1">Information & Customer Service Unit</a></br> for assistance.
+                    Please contact <br>
+                    <a href="https://lib.uniten.edu.my/ulib/index.php/directory1" target="_blank">Information & Customer Service Unit</a>
+                    for assistance.
                 </div><br>
+                
                 <div class="small-text">&copy;2024 Universiti Tenaga Nasional</div>
             </div>
         </div>
@@ -320,15 +289,28 @@
         UNITEN Sultan Haji Ahmad Shah Campus: 26700 Bandar Muadzam Shah, Pahang. Tel: 609-455 2020, Fax: 609-455 2000.<br>
     </div>
     <script>
-        function toggleSocialIcons() {
-            const icons = document.querySelector('.social-icons');
-            const button = document.querySelector('.toggle-button');
-            const isVisible = icons.style.transform === 'translateX(0%)';
-            icons.style.transform = isVisible ? 'translateX(-100%)' : 'translateX(0%)';
-            button.classList.toggle('left', !isVisible);
-            button.textContent = isVisible ? '>' : '<';
-        }
+        document.addEventListener('DOMContentLoaded', function() {
+            const staffRadio = document.getElementById('staff');
+            const studentRadio = document.getElementById('student');
+            const idField = document.getElementById('id-field');
+            const submitButton = document.getElementById('login-button');
+            
+            function updateForm() {
+                if (staffRadio.checked) {
+                    idField.placeholder = 'Staff ID (eg, siti)';
+                    submitButton.classList.remove('student');
+                    submitButton.classList.add('staff');
+                } else if (studentRadio.checked) {
+                    idField.placeholder = 'Student ID (eg, IS23667)';
+                    submitButton.classList.remove('staff');
+                    submitButton.classList.add('student');
+                }
+            }
+            
+            staffRadio.addEventListener('change', updateForm);
+            studentRadio.addEventListener('change', updateForm);
+            updateForm();
+        });
     </script>
 </body>
 </html>
-
